@@ -14,6 +14,7 @@ for(const rule of feed.rules){
     assert.ok(["hide","click"].includes(action.type),"unsupported action type");
     assert.ok(typeof action.selector==="string"&&action.selector.length>0,"missing selector");
     if(action.text!==undefined) assert.equal(typeof action.text,"string");
+    if(action.kind!==undefined) assert.ok(["skip","close"].includes(action.kind),"invalid action kind");
   }
 }
 const manifest=JSON.parse(read("extension/manifest.json"));
