@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.19",
+  "version": "2026.11.19.2",
   "rules": [
     {
       "id": "foch83",
@@ -12,18 +12,28 @@
       "actions": [
         {
           "type": "click",
-          "selector": "button",
+          "kind": "skip",
+          "selector": "button, [role='button']",
           "text": "ข้ามโฆษณา",
           "exact": false
         },
         {
           "type": "click",
+          "kind": "skip",
+          "selector": "button, [role='button']",
+          "text": "Skip Ad",
+          "exact": false
+        },
+        {
+          "type": "click",
+          "kind": "close",
           "selector": "button[aria-label='ปิดโฆษณา']",
           "text": "ปิดโฆษณา",
           "exact": false
         },
         {
           "type": "click",
+          "kind": "close",
           "selector": "button[aria-label='Close advertisements']",
           "text": "Close advertisements",
           "exact": false
