@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Universal Ad Skip",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Auto skip and mute ads with updateable JSON rules.",
   "permissions": [
     "storage",
@@ -27,7 +27,18 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Universal Ad Skip"
+    "default_title": "Universal Ad Skip",
+    "default_icon": {
+      "16": "icon-16.png",
+      "32": "icon-32.png",
+      "48": "icon-48.png"
+    }
   },
-  "options_page": "options.html"
+  "options_page": "options.html",
+  "icons": {
+    "16": "icon-16.png",
+    "32": "icon-32.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  }
 }
