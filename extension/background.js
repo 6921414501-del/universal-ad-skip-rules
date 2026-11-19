@@ -1,7 +1,7 @@
 "use strict";
 const DEFAULT_FEED = "https://raw.githubusercontent.com/6921414501-del/universal-ad-skip-rules/main/ad-rules.json";
 const ALARM_NAME = "refresh-remote-rules";
-const DEFAULT_SETTINGS = {enabled:true, autoSkip:true, autoClose:true, hideBanners:true, feedUrl:DEFAULT_FEED};
+const DEFAULT_SETTINGS = {enabled:true, autoSkip:true, autoClose:true, hideBanners:true, muteWhileSkip:true, feedUrl:DEFAULT_FEED};
 const ACTIONS = new Set(["click", "hide"]);
 function validateFeed(feed) {
   if (!feed || feed.schemaVersion !== 1 || !Array.isArray(feed.rules) || feed.rules.length > 1000) throw Error("Unsupported rules schema");
