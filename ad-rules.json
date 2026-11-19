@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.20.5",
+  "version": "2026.11.20.6",
   "rules": [
     {
       "id": "foch83",
@@ -254,6 +254,30 @@
           "kind": "skip",
           "selector": "#skipAdBtn",
           "text": "ข้ามโฆษณา",
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "jwplayer-vast-77hd",
+      "domains": [
+        "player77hdfree.xyz",
+        "*.player77hdfree.xyz"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "click",
+          "kind": "skip",
+          "selector": ".jw-state-idle .jw-icon-display",
+          "text": "",
+          "exact": false
+        },
+        {
+          "type": "click",
+          "kind": "skip",
+          "selector": ".jw-skip",
+          "text": "ข้าม",
           "exact": false
         }
       ]
