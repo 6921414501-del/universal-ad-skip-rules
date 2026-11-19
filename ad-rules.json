@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.20.2",
+  "version": "2026.11.20.3",
   "rules": [
     {
       "id": "foch83",
@@ -165,6 +165,13 @@
         {
           "type": "hide",
           "selector": ".widget-side"
+        },
+        {
+          "type": "click",
+          "kind": "skip",
+          "selector": "#btn-next",
+          "text": "ข้ามโฆษณา",
+          "exact": false
         }
       ]
     },
