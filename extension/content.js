@@ -1,9 +1,10 @@
 "use strict";
 (() => {
-  const DEFAULTS = {enabled:true,autoSkip:true,autoClose:true,hideBanners:true};
+  const DEFAULTS = {enabled:true,autoSkip:true,autoClose:true,hideBanners:true,muteWhileSkip:true};
   const MAX_CLICKS = 3;
   const RETRY_MS = 2500;
   const clickState = new WeakMap();
+  const mutedMedia = new Map();
   let settings = {...DEFAULTS};
   let rulesFeed = {rules:[]};
   let customRules = [];
@@ -44,16 +45,46 @@
       ? label.toLocaleLowerCase() === expected.toLocaleLowerCase()
       : label.toLocaleLowerCase().includes(expected.toLocaleLowerCase()));
   }
-  function canClick(el) {
-    if (!(el instanceof HTMLElement) || !el.isConnected) return false;
-    if (el.matches(":disabled,[aria-disabled='true']")) return false;
-    if (!el.getClientRects().length) return false;
+  function isVisible(el) {
+    if (!(el instanceof HTMLElement) || !el.isConnected || !el.getClientRects().length) return false;
     const style = getComputedStyle(el);
     return style.visibility !== "hidden" && style.display !== "none";
   }
+  function canClick(el) {
+    return isVisible(el) && !el.matches(":disabled,[aria-disabled='true']");
+  }
+  function skipIndicatorPresent(rules) {
+    for (const rule of rules) for (const action of rule.actions || []) {
+      if (action.type !== "click" || actionKind(action) !== "skip") continue;
+      let elements;
+      try { elements = document.querySelectorAll(action.selector); } catch { continue; }
+      for (const el of elements) {
+        if (isVisible(el) && labelMatches(el, action)) return true;
+      }
+    }
+    return false;
+  }
+  function updateMediaMute(shouldMute) {
+    if (shouldMute) {
+      for (const media of document.querySelectorAll("video, audio")) {
+        if (mutedMedia.has(media)) continue;
+        if (!media.muted) {
+          mutedMedia.set(media, false);
+          media.muted = true;
+        }
+      }
+    } else {
+      for (const [media, originalMuted] of mutedMedia) {
+        if (media.isConnected && media.muted) media.muted = originalMuted;
+        mutedMedia.delete(media);
+      }
+    }
+  }
   function apply() {
+    const rules = settings.enabled ?
+      [...(rulesFeed.rules || []),...customRules].filter(matchesSite) : [];
+    updateMediaMute(Boolean(settings.enabled && settings.autoSkip && settings.muteWhileSkip && skipIndicatorPresent(rules)));
     if (!settings.enabled) return;
-    const rules = [...(rulesFeed.rules || []),...customRules].filter(matchesSite);
     const now = Date.now();
     for (const rule of rules) for (const action of rule.actions || []) {
       if (!permitted(action)) continue;
