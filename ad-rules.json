@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.19.4",
+  "version": "2026.11.19.5",
   "rules": [
     {
       "id": "foch83",
@@ -81,7 +81,9 @@
       "id": "lumierecore-player",
       "domains": [
         "lumierecore.com",
-        "*.lumierecore.com"
+        "*.lumierecore.com",
+        "cyberlumina.com",
+        "*.cyberlumina.com"
       ],
       "enabled": true,
       "actions": [
@@ -102,6 +104,43 @@
         {
           "type": "hide",
           "selector": "#register_btn"
+        }
+      ]
+    },
+    {
+      "id": "xn--2-5wf2fsbxbq",
+      "domains": [
+        "xn--2-5wf2fsbxbq.net",
+        "*.xn--2-5wf2fsbxbq.net"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "click",
+          "kind": "close",
+          "selector": "#as-close-btn",
+          "text": "",
+          "exact": false
+        },
+        {
+          "type": "hide",
+          "selector": ".hg-ad-center"
+        },
+        {
+          "type": "hide",
+          "selector": ".hee-bnn"
+        },
+        {
+          "type": "hide",
+          "selector": "a[href*='cutt.ly/']"
+        },
+        {
+          "type": "hide",
+          "selector": "a[href*='ibit.ly/']"
+        },
+        {
+          "type": "hide",
+          "selector": "a[href*='t.ly/']"
         }
       ]
     }
