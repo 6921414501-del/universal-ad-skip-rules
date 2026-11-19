@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.20.1",
+  "version": "2026.11.20.2",
   "rules": [
     {
       "id": "foch83",
@@ -195,6 +195,45 @@
         {
           "type": "hide",
           "selector": "[id^='javxp15-']"
+        }
+      ]
+    },
+    {
+      "id": "rdads-ads",
+      "domains": [
+        "xn--z3ckh5b.com",
+        "*.xn--z3ckh5b.com"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "hide",
+          "selector": ".rdads-zone"
+        },
+        {
+          "type": "hide",
+          "selector": ".rdads-slider"
+        },
+        {
+          "type": "hide",
+          "selector": "[id^='rdads-']"
+        }
+      ]
+    },
+    {
+      "id": "upnerd-player",
+      "domains": [
+        "player.upnerd.net",
+        "*.upnerd.net"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "click",
+          "kind": "skip",
+          "selector": "#skipAdBtn",
+          "text": "ข้ามโฆษณา",
+          "exact": false
         }
       ]
     }
