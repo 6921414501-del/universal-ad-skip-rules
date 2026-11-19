@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "version": "2026.11.19",
+  "rules": [
+    {
+      "id": "foch83",
+      "domains": [
+        "foch83.com",
+        "*.foch83.com"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "click",
+          "selector": "button",
+          "text": "ข้ามโฆษณา",
+          "exact": false
+        },
+        {
+          "type": "click",
+          "selector": "button[aria-label='ปิดโฆษณา']",
+          "text": "ปิดโฆษณา",
+          "exact": false
+        },
+        {
+          "type": "click",
+          "selector": "button[aria-label='Close advertisements']",
+          "text": "Close advertisements",
+          "exact": false
+        },
+        {
+          "type": "hide",
+          "selector": "a[href*='ibit.ly/']"
+        },
+        {
+          "type": "hide",
+          "selector": "a[href*='cutt.ly/']"
+        },
+        {
+          "type": "hide",
+          "selector": "a[href*='ambking99.wtf/']"
+        }
+      ]
+    }
+  ]
+}
