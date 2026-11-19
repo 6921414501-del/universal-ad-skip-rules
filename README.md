@@ -22,6 +22,20 @@ Open-source Manifest V3 extension with a **data-only JSON rule feed** hosted for
 **GitHub Pages is optional**: the default feed uses GitHub Raw, so no separate hosting setup is required. If desired, enable **Settings → Pages → Deploy from a branch → main → /(root)**, then use:
 `https://6921414501-del.github.io/universal-ad-skip-rules/ad-rules.json`
 
+## Public releases and automatic updates
+
+This repository is **public**. Anyone can read the source code, download it, and submit pull requests.
+
+**Remote rules (free and automatic):** `ad-rules.json` is downloaded by the installed extension on start and roughly every 30 minutes. Updating rule data does not require reinstalling the extension.
+
+**Extension code updates:** Chrome does **not** automatically upgrade extensions installed with **Load unpacked** from GitHub. This repository generates a ZIP artifact via GitHub Actions on pushes and can publish a versioned GitHub Release automatically when you push a tag matching `extension/manifest.json`, for example `v2.4.0`. Downloading a newer ZIP still requires manual replacement/reload for unpacked installs.
+
+**Chrome Web Store:** For regular Windows/macOS users to receive automatic extension *code* updates, publish through the Chrome Web Store after developer registration, review, and approval (one-time registration fee). You can upload the `universal-ad-skip-extension.zip` produced by the workflow; the ZIP has `manifest.json` at its root. Once a new version is published in the Store, Chrome handles automatic updates. Avoid claiming a GitHub link or `update_url` alone enables auto-install on Windows/macOS.
+
+**Linux/enterprise:** Self-hosted signed CRX deployments with an update manifest are possible only under platform/enterprise installation restrictions. This repository does not configure that workflow or expose a signed CRX.
+
+See [Build Extension ZIP workflow](./.github/workflows/build-extension.yml). Never commit CRX signing keys or Chrome Web Store credentials to the repository.
+
 ## Repository
 
 ```text
