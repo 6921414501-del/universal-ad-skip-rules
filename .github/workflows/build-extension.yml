@@ -3,8 +3,7 @@ name: Build Chrome Extension ZIP
 on:
   push:
     branches: [main]
-    tags:
-      - 'v*'
+    tags: ['v*']
   pull_request:
   workflow_dispatch:
 
@@ -37,7 +36,9 @@ jobs:
           cd extension
           zip -r ../dist/universal-ad-skip-extension.zip . -x '*.DS_Store'
           cd ../dist
-          unzip -l universal-ad-skip-extension.zip | grep -E 'manifest.json
+          unzip -t universal-ad-skip-extension.zip
+          unzip -p universal-ad-skip-extension.zip manifest.json > /dev/null
+          unzip -p universal-ad-skip-extension.zip icon-128.png > /dev/null
       - name: Upload installable source ZIP as workflow artifact
         uses: actions/upload-artifact@v4
         with:
@@ -48,18 +49,6 @@ jobs:
         with:
           name: universal-ad-skip-store-images
           path: store-assets/*.png
-      - name: Publish GitHub Release on version tag
-        if: startsWith(github.ref, 'refs/tags/v')
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create "${GITHUB_REF_NAME}" dist/universal-ad-skip-extension.zip --title "Universal Ad Skip ${GITHUB_REF_NAME}" --generate-notes
-
-          unzip -p universal-ad-skip-extension.zip manifest.json > /dev/null
-      - name: Upload installable source ZIP as workflow artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: universal-ad-skip-extension
-          path: dist/universal-ad-skip-extension.zip
       - name: Publish GitHub Release on version tag
         if: startsWith(github.ref, 'refs/tags/v')
         env:
