@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.19.6",
+  "version": "2026.11.19.7",
   "rules": [
     {
       "id": "foch83",
@@ -143,6 +143,36 @@
         {
           "type": "hide",
           "selector": "a[href*='t.ly/']"
+        }
+      ]
+    },
+    {
+      "id": "javxp15-ads",
+      "domains": [
+        "xn--l3cb9dwb6c.com",
+        "*.xn--l3cb9dwb6c.com"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "hide",
+          "selector": "[class*='javxp15-ad-']"
+        },
+        {
+          "type": "hide",
+          "selector": ".javxp15-dev"
+        },
+        {
+          "type": "hide",
+          "selector": ".javxp15-uplayer"
+        },
+        {
+          "type": "hide",
+          "selector": ".javxp15-siderail"
+        },
+        {
+          "type": "hide",
+          "selector": "[id^='javxp15-']"
         }
       ]
     }
