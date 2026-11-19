@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.19.3",
+  "version": "2026.11.19.4",
   "rules": [
     {
       "id": "foch83",
@@ -74,6 +74,34 @@
         {
           "type": "hide",
           "selector": "[class*='video-player-banners']"
+        }
+      ]
+    },
+    {
+      "id": "lumierecore-player",
+      "domains": [
+        "lumierecore.com",
+        "*.lumierecore.com"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "click",
+          "kind": "close",
+          "selector": "button",
+          "text": "X",
+          "exact": true
+        },
+        {
+          "type": "click",
+          "kind": "skip",
+          "selector": "#skip_btn",
+          "text": "ข้ามโฆษณา",
+          "exact": false
+        },
+        {
+          "type": "hide",
+          "selector": "#register_btn"
         }
       ]
     }
