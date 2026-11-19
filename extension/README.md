@@ -1,4 +1,4 @@
-# Universal Ad Skip — Chrome Extension v2.3.0
+# Universal Ad Skip — Chrome Extension v2.4.0
 
 **Install:** In Chrome open `chrome://extensions` → enable **Developer mode** → **Load unpacked** → select this **extension/** folder (not the repository root). Refresh any already-open pages.
 
@@ -17,3 +17,7 @@
 ## Skip behavior in v2.3.0
 
 Rules can mark clicks with `"kind":"skip"` or `"kind":"close"`; these map to the separate popup toggles. The engine checks visible text, `aria-label`, `title` and `value`, including buttons that appear after page load. It retries eligible click targets at most 3 times, at least 2.5 seconds apart. Retry is best effort; it cannot guarantee successful ad dismissal. The remote JSON rule changes take effect without reinstalling the extension, while updates to `content.js` or `manifest.json` require downloading the updated `extension/` folder and reloading the unpacked extension in Chrome.
+
+## Mute while Skip (v2.4.0)
+
+The popup now has **Mute while Skip** (on by default). When **Enabled**, **Auto Skip**, and **Mute while Skip** are on and a *visible skip-ad control* matches a rule in a particular frame, the content script temporarily mutes HTML `video` and `audio` elements **in that same frame**. When the skip control disappears or a related setting is turned off, the script restores their previous muted state. It does not permanently change the saved player volume. A click may dismiss the button before an ad fully ends, and ads in different/cross-origin frames or non-HTML players may not be muted; this behavior is best effort, not a universal tab-mute feature. No remote JavaScript is needed; GitHub JSON rules can identify the skip control through `kind: "skip"`.
