@@ -19,6 +19,8 @@ for(const rule of feed.rules){
 }
 const manifest=JSON.parse(read("extension/manifest.json"));
 assert.equal(manifest.manifest_version,3);
+assert.ok(manifest.icons?.["128"] === "icon-128.png","128px extension icon must be configured");
+assert.ok(manifest.action?.default_icon?.["32"] === "icon-32.png","toolbar icon must be configured");
 for(const path of ["extension/background.js","extension/content.js","extension/popup.js","extension/options.js"]) {
   new (await import("node:vm")).Script(read(path),{filename:path});
 }
