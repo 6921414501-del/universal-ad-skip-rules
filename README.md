@@ -2,6 +2,14 @@
 
 Open-source Manifest V3 extension with a **data-only JSON rule feed** hosted for free in this GitHub repository.
 
+## Upload ZIP to Chrome Web Store (important)
+
+**GitHub Actions artifacts are ZIP wrappers.** Under Actions → Build Chrome Extension ZIP → Artifacts, downloading `universal-ad-skip-extension` returns an outer ZIP which **contains** `universal-ad-skip-extension.zip`. **Extract the outer ZIP first**, then upload the inner `universal-ad-skip-extension.zip` to Chrome Web Store Developer Dashboard → Add new item. Do not upload the outer artifact ZIP.
+
+The correct upload archive must contain `manifest.json`, `background.js`, `content.js`, etc. **at the archive root** (not under `extension/` or another ZIP).
+
+To confirm on Windows, right-click the inner ZIP → Open with File Explorer and make sure `manifest.json` is visible immediately.
+
 ## Install Chrome Extension
 
 1. Download this repository via **Code → Download ZIP**, then extract it.
