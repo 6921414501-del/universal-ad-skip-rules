@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Universal Ad Skip",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Data-driven ad skip and banner cleaner with remotely updated JSON rules.",
   "permissions": [
     "storage",
@@ -22,7 +22,7 @@
         "content.js"
       ],
       "run_at": "document_idle",
-      "all_frames": false
+      "all_frames": true
     }
   ],
   "action": {
