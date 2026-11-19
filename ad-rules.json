@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.19.7",
+  "version": "2026.11.20.1",
   "rules": [
     {
       "id": "foch83",
@@ -113,7 +113,9 @@
       "id": "xn--2-5wf2fsbxbq",
       "domains": [
         "xn--2-5wf2fsbxbq.net",
-        "*.xn--2-5wf2fsbxbq.net"
+        "*.xn--2-5wf2fsbxbq.net",
+        "xn--5-wxfc3gwbi.net",
+        "*.xn--5-wxfc3gwbi.net"
       ],
       "enabled": true,
       "actions": [
@@ -143,6 +145,26 @@
         {
           "type": "hide",
           "selector": "a[href*='t.ly/']"
+        },
+        {
+          "type": "hide",
+          "selector": ".mt-ad"
+        },
+        {
+          "type": "hide",
+          "selector": ".sidebar-ads"
+        },
+        {
+          "type": "hide",
+          "selector": ".video-player-banner"
+        },
+        {
+          "type": "hide",
+          "selector": "#widget_stack"
+        },
+        {
+          "type": "hide",
+          "selector": ".widget-side"
         }
       ]
     },
