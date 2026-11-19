@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.20.4",
+  "version": "2026.11.20.5",
   "rules": [
     {
       "id": "foch83",
@@ -242,6 +242,13 @@
       ],
       "enabled": true,
       "actions": [
+        {
+          "type": "click",
+          "kind": "skip",
+          "selector": "#customPlayBtn",
+          "text": "",
+          "exact": false
+        },
         {
           "type": "click",
           "kind": "skip",
