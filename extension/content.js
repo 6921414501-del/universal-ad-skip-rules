@@ -62,7 +62,7 @@
       catch { continue; }
       for (const el of elements) {
         if (action.type === "hide") {
-          if (el instanceof HTMLElement) el.style.setProperty("display","none","important");
+          if (el instanceof HTMLElement && (el.style.getPropertyValue("display") !== "none" || el.style.getPropertyPriority("display") !== "important")) el.style.setProperty("display","none","important");
           continue;
         }
         if (!canClick(el) || !labelMatches(el,action)) continue;
