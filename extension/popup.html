@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Universal Ad Skip</title>
+<style>body{font:14px system-ui,sans-serif;width:310px;padding:16px;margin:0;background:#101827;color:#eef4ff}h1{font-size:19px;margin:0 0 4px}.hint{color:#9facbf;font-size:12px;margin:0 0 16px}label{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #29354a}input{width:18px;height:18px;accent-color:#60a5fa}button{border:0;border-radius:8px;padding:10px;background:#2563eb;color:white;cursor:pointer;font-weight:600}button.secondary{background:#334155}.buttons{display:flex;gap:8px;margin-top:18px}.buttons button{flex:1}#status{font-size:12px;color:#a6bad3;margin-top:12px;white-space:pre-wrap}</style>
+</head><body><h1>Universal Ad Skip</h1><p class="hint">Remote JSON rules · Manifest V3</p>
+<label>เปิดใช้งานทั้งหมด <input id="enabled" type="checkbox"></label>
+<label>Auto Skip <input id="autoSkip" type="checkbox"></label>
+<label>Auto Close <input id="autoClose" type="checkbox"></label>
+<label>Hide Banners <input id="hideBanners" type="checkbox"></label>
+<div class="buttons"><button id="refresh">Update rules</button><button class="secondary" id="options">Settings</button></div>
+<div id="status" role="status"></div><script src="popup.js"></script></body></html>
