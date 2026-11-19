@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.11.19.2",
+  "version": "2026.11.19.3",
   "rules": [
     {
       "id": "foch83",
@@ -49,6 +49,31 @@
         {
           "type": "hide",
           "selector": "a[href*='ambking99.wtf/']"
+        }
+      ]
+    },
+    {
+      "id": "xn--12c1ezaww",
+      "domains": [
+        "xn--12c1ezaww.com",
+        "*.xn--12c1ezaww.com"
+      ],
+      "enabled": true,
+      "actions": [
+        {
+          "type": "click",
+          "kind": "close",
+          "selector": ".dac-close",
+          "text": "",
+          "exact": false
+        },
+        {
+          "type": "hide",
+          "selector": ".dac"
+        },
+        {
+          "type": "hide",
+          "selector": "[class*='video-player-banners']"
         }
       ]
     }
