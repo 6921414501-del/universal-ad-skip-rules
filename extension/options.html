@@ -1,0 +1,12 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Universal Ad Skip Settings</title>
+<style>body{font:15px system-ui,sans-serif;max-width:800px;margin:40px auto;padding:0 20px;background:#0f172a;color:#e2e8f0}p{color:#9caec4}input,textarea{box-sizing:border-box;background:#1e293b;color:white;border:1px solid #475569;border-radius:8px;padding:12px;width:100%;font:13px ui-monospace,monospace}textarea{min-height:300px}label{display:block;margin:22px 0 8px;font-weight:650}button{margin:12px 8px 12px 0;padding:10px 16px;border:0;border-radius:8px;background:#2563eb;color:white;cursor:pointer}a{color:#93c5fd}#status{white-space:pre-wrap;color:#93c5fd}</style></head><body>
+<h1>Universal Ad Skip — Settings</h1>
+<p>เปลี่ยน URL สำหรับ JSON feed ได้โดยไม่ต้องแก้โค้ด Extension · โหลดเฉพาะข้อมูล JSON ไม่รัน JavaScript ภายนอก</p>
+<label for="feedUrl">Remote JSON feed (HTTPS)</label><input id="feedUrl" type="url">
+<button id="saveFeed">Save feed URL</button><button id="refresh">Update now</button>
+<p>GitHub repository: <a href="https://github.com/6921414501-del/universal-ad-skip-rules" target="_blank" rel="noreferrer">universal-ad-skip-rules</a></p>
+<label for="customRules">Local custom rules (JSON array, overrides are additive)</label>
+<textarea id="customRules" spellcheck="false" placeholder='[{"id":"example","domains":["example.com"],"enabled":true,"actions":[{"type":"hide","selector":".ad"}]}]'></textarea>
+<button id="saveCustom">Save local rules</button><button id="exportCustom">Export rules</button>
+<p id="status" role="status"></p>
+<script src="options.js"></script></body></html>
