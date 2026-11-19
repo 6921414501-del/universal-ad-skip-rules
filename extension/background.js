@@ -11,7 +11,8 @@ function validateFeed(feed) {
     if (!domains.length) throw Error("Missing valid domain");
     const actions = rule.actions.map(a => {
       if (!a || !ACTIONS.has(a.type) || typeof a.selector !== "string" || !a.selector.trim() || a.selector.length > 500) throw Error("Invalid action");
-      return {type:a.type,selector:a.selector,text:typeof a.text === "string" ? a.text.slice(0,160) : "",exact:a.exact === true};
+      if (a.kind !== undefined && !["skip","close"].includes(a.kind)) throw Error("Invalid action kind");
+      return {type:a.type,selector:a.selector,text:typeof a.text === "string" ? a.text.slice(0,160) : "",exact:a.exact === true,kind:a.kind || ""};
     }).slice(0,100);
     return {id:rule.id.slice(0,100),domains,enabled:rule.enabled !== false,actions};
   })};
