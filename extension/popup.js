@@ -1,5 +1,5 @@
 "use strict";
-const keys=["enabled","autoSkip","autoClose","hideBanners"];
+const keys=["enabled","autoSkip","autoClose","hideBanners","muteWhileSkip"];
 const status=document.getElementById("status");
 async function showStatus(){
   const data=await chrome.storage.local.get(["rulesFeed","lastUpdated","lastError"]);
